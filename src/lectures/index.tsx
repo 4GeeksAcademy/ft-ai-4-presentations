@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { HowToLecture } from './how-to'
 import { WelcomeLecture } from './welcome'
+import { WorkingWithAgentsLecture } from './working-with-agents'
 
 export type Lecture = {
   id: string
@@ -26,6 +27,12 @@ export const lectures: Record<string, Lecture> = {
     title: 'How to present',
     summary: 'Local master, Pages audience, notes, and PDF',
     render: () => <HowToLecture />,
+  },
+  'working-with-agents': {
+    id: 'working-with-agents',
+    title: 'Working With Coding Agents',
+    summary: 'Introduction to AI-assisted development',
+    render: () => <WorkingWithAgentsLecture />,
   },
 }
 
