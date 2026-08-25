@@ -15,7 +15,7 @@ The app is **scaffolded** (Vite + React + TS + reveal.js). See `src/` and `memor
 | Hosting | GitHub Pages (static) — not Vercel |
 | CI | GitHub Actions (`.github/workflows/deploy-pages.yml`) |
 | Live URL | `https://4geeksacademy.github.io/ft-ai-4-presentations/` |
-| Live follow-along | reveal-multiplex via `https://multiplex.up.railway.app/` (Phase 5 — pending) |
+| Live follow-along | reveal-multiplex via `https://multiplex.up.railway.app/` (`src/multiplex/resolve.ts`) |
 
 ## GitHub Pages constraints (hard)
 

@@ -52,22 +52,22 @@ Fast path from empty repo → course deck on GitHub Pages with optional live mul
 
 - [x] GitHub Actions: `npm ci` → `build` → upload `dist/` → deploy-pages (`.github/workflows/deploy-pages.yml`)
 - [x] Enable Pages (Actions source) on the repo — done via API (`build_type: workflow`)
-- [ ] Smoke: assets 200, CSS loads, hash refresh keeps slide (after first successful deploy)
+- [x] Smoke: assets 200 after first successful deploy
 - [x] README: clone, dev, build, Pages URL
 
-**Exit:** Public URL serves the sample deck. (Pending commit/push + green workflow.)
+**Exit:** Public URL serves the sample deck. ✅ https://4geeksacademy.github.io/ft-ai-4-presentations/
 
 ---
 
 ## Phase 5 — Multiplex
 
-- [ ] Client mode default on Pages: `secret: null`, relay URL, session `id`
-- [ ] Master mode local only: secret via gitignored `.env.local` or non-shared query
-- [ ] Load Socket.IO + master/client scripts from Railway host
-- [ ] Operator steps: hit `/token`, set id (and secret for master), open Pages client + local master
-- [ ] Spec note: public relay has no SLA
+- [x] Client mode default on Pages: `secret: null`, relay URL, session `id`
+- [x] Master mode local only: secret via gitignored `.env.local` or non-shared query; blocked on github.io
+- [x] Load Socket.IO + master/client scripts from Railway host
+- [x] Operator steps documented in README + `multiplex.md`
+- [x] Spec note: public relay has no SLA
 
-**Exit:** Two browsers stay in sync when master advances slides.
+**Exit:** Two browsers stay in sync when master advances slides. (Manual check: local master + Pages/`preview` client with same `id`.)
 
 ---
 

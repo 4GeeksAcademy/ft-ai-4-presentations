@@ -23,24 +23,15 @@ Do **not** commit `dist/`.
 
 ## One-time repo setup
 
-Settings → Pages → **Source: GitHub Actions** (required before the first deploy succeeds).
-
-## Vite settings that must stay aligned
-
-```ts
-// vite.config.ts
-base: '/ft-ai-4-presentations/'
-```
-
-Local: `npm run preview` serves under the same base (`http://127.0.0.1:4173/ft-ai-4-presentations/`).
+Pages source is **GitHub Actions** (`build_type: workflow`). Already enabled for this repo.
 
 ## Checklist before calling deploy “done”
 
-- [ ] First Actions run is green
-- [ ] `index.html` and hashed assets load (no 404 on `/ft-ai-4-presentations/assets/...`)
-- [ ] Slide hash deep links work after refresh
-- [ ] reveal.js CSS/fonts load
-- [ ] Pages source is GitHub Actions (not branch/`docs`)
+- [x] First Actions run is green (`d76d817` / run 32873172669)
+- [x] `index.html` and hashed assets load under `/ft-ai-4-presentations/`
+- [ ] Slide hash deep links work after refresh (spot-check in browser)
+- [x] reveal.js CSS bundled in production build
+- [x] Pages source is GitHub Actions (not branch/`docs`)
 
 ## Hosting decision
 

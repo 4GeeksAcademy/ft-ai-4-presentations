@@ -19,12 +19,21 @@ npm run preview   # production build with the same base path
 
 Pushes to `main` run [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml): `npm ci` → `npm run build` → deploy `dist/` to GitHub Pages.
 
-One-time repo setup (Settings → Pages):
+Vite `base` is `/ft-ai-4-presentations/` (project site).
 
-1. **Source:** GitHub Actions
-2. After the first successful workflow, the site is at the Live URL above
+## Live follow-along (multiplex)
 
-Vite `base` is `/ft-ai-4-presentations/` (project site). Change it only if the repo name or custom domain changes.
+Relay: [https://multiplex.up.railway.app/](https://multiplex.up.railway.app/) (public; no SLA).
+
+1. Open [https://multiplex.up.railway.app/token](https://multiplex.up.railway.app/token) — note `secret` and `socketId` (use `socketId` as `id`).
+2. **Audience (Pages client):**  
+   `https://4geeksacademy.github.io/ft-ai-4-presentations/?id=<socketId>`
+3. **Presenter (local master):**  
+   `npm run dev`, then  
+   `http://localhost:5173/ft-ai-4-presentations/?role=master&id=<socketId>&secret=<secret>`  
+   Or put `VITE_MULTIPLEX_*` in gitignored `.env.local` (see `.env.example`).
+
+Master mode is **blocked on github.io** so the secret never ships with the public site. Without `id`, the deck runs solo.
 
 ## Add a lecture
 

@@ -2,33 +2,28 @@
 
 ## Current focus
 
-**Phase 4 in progress:** workflow ready; Pages source set to GitHub Actions. Need **commit/push** then smoke the live URL.
+**Phase 5 shipping** — multiplex on `main` / Pages after this push.
 
 ## Recent changes
 
-- Added `.github/workflows/deploy-pages.yml` (Node 22, `npm ci`, build, deploy-pages).
-- README: live URL `https://4geeksacademy.github.io/ft-ai-4-presentations/`, deploy section.
-- Memory Bank filenames kebab-case; Phases 0–3 complete locally.
+- Multiplex client/master wiring + README / `.env.example`
+- Master blocked on `*.github.io`
 
 ## Next steps
 
-1. Commit and push to `main` (includes workflow + app).
-2. Confirm workflow green; smoke live site (assets + hash).
-3. Phase 5: multiplex.
+1. Manual test: token → Pages `?id=` client + local `?role=master&id=&secret=`
+2. Commit/push Phase 5 when satisfied
+3. Phase 6 polish only if needed
 
 ## Active decisions
 
-- Org remote: `4GeeksAcademy/ft-ai-4-presentations`
-- Pages via Actions artifact (not `docs/` / branch deploy)
-- Vite `base: '/ft-ai-4-presentations/'`
+- Relay: `https://multiplex.up.railway.app/`
+- No multiplex when `id` omitted (solo deck)
 
 ## Open questions
 
-- Custom domain (none yet)
 - Course branding beyond welcome deck
-- Multiplex master secret UX (Phase 5)
 
 ## Preferences
 
-- Do not mark Phase 4 exit until the public URL works.
-- Keep slide components small and lecture-scoped.
+- Never set `VITE_MULTIPLEX_SECRET` in CI or committed env files.

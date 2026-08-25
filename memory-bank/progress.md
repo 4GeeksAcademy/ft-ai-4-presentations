@@ -2,33 +2,31 @@
 
 ## Status
 
-**Phase:** 4 partially done — workflow exists; live deploy waiting on push + Pages Settings.
+**Phase:** 5 code complete. Awaiting manual two-browser sync check + deploy.
 
 ## What works
 
-- Phases 0–3 locally (scaffold, RevealDeck, welcome lecture, registry)
-- `.github/workflows/deploy-pages.yml`
-- README documents Live URL and deploy steps
-- Memory Bank + kebab-case naming + specs/dev-plan
+- Phases 0–4 live on Pages
+- Multiplex resolve + RevealDeck script loading (client default; local master)
+- Master blocked on GitHub Pages host
 
 ## What's left
 
-- [x] Phase 0 — Repo hygiene
-- [x] Phase 1 — Scaffold
-- [x] Phase 2 — Reveal deck core
-- [x] Phase 3 — Lecture pattern
-- [ ] Phase 4 — GitHub Pages deploy (workflow ✅; Pages Actions source ✅; push + smoke ❌)
-- [ ] Phase 5 — Multiplex
+- [x] Phase 0–4
+- [x] Phase 5 — Multiplex (implementation)
+- [ ] Phase 5 — Manual sync verification
 - [ ] Phase 6 — Polish (optional)
 
 ## Known issues / risks
 
-- Pages Actions source enabled; live site still empty until first green deploy from `main`
+- Public multiplex relay has no SLA
+- reveal-multiplex scripts expect global `Reveal` (we assign the deck instance)
+- Token JSON uses `socketId`; we map that to config `id`
 
 ## Decision log
 
 | Date | Decision |
 | --- | --- |
-| 2026-08-25 | Stack / Pages / Railway multiplex / Memory Bank / specs |
-| 2026-08-25 | Phases 0–3 implemented; kebab-case bank names |
-| 2026-08-25 | Phase 4 workflow: Actions → deploy-pages; URL under 4geeksacademy.github.io |
+| 2026-08-25 | Stack / Pages / Railway multiplex / Memory Bank |
+| 2026-08-25 | Phases 0–4 live |
+| 2026-08-25 | Phase 5: query/env multiplex; master never on github.io |
