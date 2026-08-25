@@ -21,21 +21,29 @@ Pushes to `main` run [.github/workflows/deploy-pages.yml](.github/workflows/depl
 
 Vite `base` is `/ft-ai-4-presentations/` (project site).
 
+## Using the site
+
+- **Course home:** `/ft-ai-4-presentations/` — pick a lecture
+- **Lecture:** `?lecture=welcome` or `?lecture=how-to`
+- **Speaker notes:** press **S** in a deck (client-side notes plugin; no notes server)
+- **PDF:** add `?print-pdf` (reveal.js print view), then browser Print → Save as PDF  
+  Example: `?lecture=welcome&print-pdf`
+
 ## Live follow-along (multiplex)
 
 Relay: [https://multiplex.up.railway.app/](https://multiplex.up.railway.app/) (public; no SLA).
 
 1. Open [https://multiplex.up.railway.app/token](https://multiplex.up.railway.app/token) — note `secret` and `socketId` (use `socketId` as `id`).
 2. **Audience (Pages client):**  
-   `https://4geeksacademy.github.io/ft-ai-4-presentations/?id=<socketId>`
+   `https://4geeksacademy.github.io/ft-ai-4-presentations/?lecture=welcome&id=<socketId>`
 3. **Presenter (local master):**  
    `npm run dev`, then  
-   `http://localhost:5173/ft-ai-4-presentations/?role=master&id=<socketId>&secret=<secret>`  
+   `http://localhost:5173/ft-ai-4-presentations/?lecture=welcome&role=master&id=<socketId>&secret=<secret>`  
    Or put `VITE_MULTIPLEX_*` in gitignored `.env.local` (see `.env.example`).
 
-Master mode is **blocked on github.io** so the secret never ships with the public site. Without `id`, the deck runs solo.
+Master mode is **blocked on github.io**. Without `id`, the deck runs solo.
 
 ## Add a lecture
 
-1. Create `src/lectures/<id>.tsx` exporting a component of reveal `<section>` trees.
-2. Register it in `src/lectures/index.tsx`.
+1. Create `src/lectures/<id>.tsx` exporting a component of reveal `<section>` trees (optional `<aside class="notes">`).
+2. Register it in `src/lectures/index.tsx` with `title` and `summary`.

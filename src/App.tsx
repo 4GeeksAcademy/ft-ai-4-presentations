@@ -1,13 +1,20 @@
+import { CourseHome } from './components/CourseHome'
 import { RevealDeck } from './components/RevealDeck'
-import { defaultLectureId, getLecture } from './lectures'
+import { getLecture, lectureIdFromSearch } from './lectures'
 import './theme/deck.css'
 
 /**
- * Shell: loads one lecture from the registry.
+ * Shell: course home, or one lecture from `?lecture=<id>`.
  * To add a lecture: create `src/lectures/<id>.tsx`, register it in `src/lectures/index.tsx`.
  */
 function App() {
-  const lecture = getLecture(defaultLectureId)
+  const lectureId = lectureIdFromSearch()
+
+  if (!lectureId) {
+    return <CourseHome />
+  }
+
+  const lecture = getLecture(lectureId)
 
   return <RevealDeck lectureId={lecture.id}>{lecture.render()}</RevealDeck>
 }

@@ -60,3 +60,32 @@ body {
 .reveal .slides section > p:first-of-type {
   color: var(--deck-fg);
 }
+
+.reveal code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--deck-accent);
+}
+
+.deck-home-link {
+  position: fixed;
+  z-index: 20;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--deck-muted);
+  text-decoration: none;
+}
+
+.deck-home-link:hover,
+.deck-home-link:focus-visible {
+  color: var(--deck-accent);
+}
+
+@media print {
+  .deck-home-link {
+    display: none;
+  }
+}

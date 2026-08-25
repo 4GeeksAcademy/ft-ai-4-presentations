@@ -43,12 +43,13 @@ Audience (GitHub Pages client, secret: null)
 
 ## Component relationships
 
-- `main.tsx` — React mount only.
-- `App.tsx` — loads `defaultLectureId` from the registry into `RevealDeck`.
-- `components/RevealDeck.tsx` — `new Reveal(el)` → `initialize()`; `destroy()` on cleanup; depends on `lectureId`.
-- `lectures/index.tsx` — registry (`id` → `{ title, render }`).
-- `lectures/welcome.tsx` — sample deck sections.
+- `App.tsx` — `?lecture=` → `RevealDeck`, else `CourseHome`.
+- `components/CourseHome.tsx` — lecture picker; preserves multiplex query params.
+- `components/RevealDeck.tsx` — Reveal init/destroy; Notes plugin; multiplex scripts; “Course home” link.
+- `lectures/index.tsx` — registry (`id` → `{ title, summary, render }`).
+- `lectures/welcome.tsx`, `lectures/how-to.tsx` — sample decks with optional notes asides.
 - `theme/deck.css` — course look on top of reveal black theme.
+- `multiplex/resolve.ts` — client/master role resolution.
 
 ## Critical implementation paths
 

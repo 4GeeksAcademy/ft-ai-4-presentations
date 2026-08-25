@@ -2,27 +2,25 @@
 
 ## Current focus
 
-**Phase 5 shipping** — multiplex on `main` / Pages after this push.
+**Phase 6 shipping** — course home, notes, print-pdf on `main` after this push.
 
 ## Recent changes
 
-- Multiplex client/master wiring + README / `.env.example`
-- Master blocked on `*.github.io`
+- `CourseHome` + `?lecture=` picker (Pages-safe)
+- Lectures: `welcome`, `how-to`
+- Reveal Notes plugin (S key); sample `<aside class="notes">`
+- README: home, notes, PDF, multiplex URLs include `lecture`
 
 ## Next steps
 
-1. Manual test: token → Pages `?id=` client + local `?role=master&id=&secret=`
-2. Commit/push Phase 5 when satisfied
-3. Phase 6 polish only if needed
+1. Commit/push Phase 6
+2. Spot-check live home + `?lecture=welcome` + S notes + `?print-pdf`
 
 ## Active decisions
 
-- Relay: `https://multiplex.up.railway.app/`
-- No multiplex when `id` omitted (solo deck)
-
-## Open questions
-
-- Course branding beyond welcome deck
+- Lecture routing via query param only (no React Router)
+- Notes = client plugin, not notes-server
+- PDF = reveal built-in `?print-pdf` print view
 
 ## Preferences
 

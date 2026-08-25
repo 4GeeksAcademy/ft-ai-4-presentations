@@ -71,13 +71,14 @@ Fast path from empty repo → course deck on GitHub Pages with optional live mul
 
 ---
 
-## Phase 6 — Polish (only if needed)
+## Phase 6 — Polish
 
-- [ ] Course home / lecture picker (if more than one deck ships)
-- [ ] In-deck speaker notes (not notes-server)
-- [ ] Print / PDF stylesheet (optional)
+- [x] Course home / lecture picker (`CourseHome` + `?lecture=`)
+- [x] Second sample lecture (`how-to`)
+- [x] In-deck speaker notes (`reveal.js/plugin/notes` + `<aside class="notes">`; press S)
+- [x] Print / PDF via reveal `?print-pdf` (documented)
 
-**Exit:** Usable for a real lecture without framework churn.
+**Exit:** Usable for a real lecture without framework churn. ✅
 
 ---
 
