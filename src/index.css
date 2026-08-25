@@ -1,0 +1,6 @@
+/* Reset only — deck look lives in theme/deck.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

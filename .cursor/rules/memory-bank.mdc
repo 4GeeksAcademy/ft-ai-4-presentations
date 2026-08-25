@@ -1,0 +1,56 @@
+---
+description: Read and update the Memory Bank at the start and end of work. Always apply in this repo.
+alwaysApply: true
+---
+
+# Memory Bank
+
+This agent starts each session with no memory of prior chats. `memory-bank/` is the only durable project context. Read it before doing work. Keep it accurate.
+
+## Naming
+
+All Memory Bank files use **kebab-case** (`project-brief.md`, `active-context.md`, `specs/dev-plan.md`). Never create camelCase or undelimited names.
+
+## Start of every task
+
+Read all of these (extras required too):
+
+- `memory-bank/project-brief.md`
+- `memory-bank/product-context.md`
+- `memory-bank/system-patterns.md`
+- `memory-bank/tech-context.md`
+- `memory-bank/github-pages.md`
+- `memory-bank/multiplex.md`
+- `memory-bank/active-context.md`
+- `memory-bank/progress.md`
+- `memory-bank/specs/dev-plan.md` (when implementing)
+
+If a core file is missing, recreate it from the others and say so. Do not invent product scope that contradicts `project-brief.md`.
+
+## Commands
+
+- **initialize memory bank** — create or repair the files above from the repo + user intent.
+- **update memory bank** — re-read every file, then update all that are stale. Always refresh `active-context.md` and `progress.md`.
+- **follow your custom instructions** — read the bank and continue from `active-context.md` / `progress.md`.
+
+## When to write the bank (without being asked)
+
+Update after significant work: new patterns, architecture choices, scaffold/deploy milestones, or a change in next steps. Capture insights in the bank, not only in chat.
+
+## File roles
+
+| File | Role |
+| --- | --- |
+| `project-brief.md` | Scope source of truth |
+| `product-context.md` | Why / who / UX |
+| `system-patterns.md` | Architecture and component patterns |
+| `tech-context.md` | Stack, tooling, constraints |
+| `github-pages.md` | Static hosting and `base` path |
+| `multiplex.md` | Live follow-along + Railway Socket.IO |
+| `active-context.md` | Current focus (update most often) |
+| `progress.md` | Done / todo / risks |
+| `specs/` | Plans and acceptance criteria (`specs/dev-plan.md` = build order) |
+
+Optional extra files under `memory-bank/` are allowed for features that do not fit the core set. New files must use kebab-case.
+
+For the full initialize/update procedure, use the project skill `memory-bank`.

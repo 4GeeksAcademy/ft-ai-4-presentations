@@ -1,0 +1,26 @@
+---
+description: GitHub Pages static hosting constraints for this SPA (base path, no server, hash routes).
+alwaysApply: true
+---
+
+# GitHub Pages
+
+This app is a **static** SPA on GitHub Pages. There is no server and no runtime backend.
+
+## Must
+
+- Production Vite `base` is `/ft-ai-4-presentations/` until a custom domain or user-site repo is confirmed.
+- Asset URLs use `import.meta.env.BASE_URL` or bundled imports. Never root-absolute `/images/...`.
+- Slide state stays on reveal.js URL hashes. Do not add `BrowserRouter` path routes unless a Pages 404 fallback is implemented and documented.
+- Deploy via GitHub Actions building `dist/`. Do not commit secrets. `VITE_*` values are public.
+
+## Must not
+
+- Node/Express/serverless as part of the site
+- reveal.js speaker-notes **server** (incompatible with Pages)
+- Hosting our own multiplex Socket.IO on Pages (use `https://multiplex.up.railway.app/`)
+- Shipping the multiplex master `secret` in the Pages build
+- Assuming the site is hosted at `/`
+- Migrating the SPA to Vercel unless the Memory Bank decision is revisited
+
+See `memory-bank/github-pages.md` and `memory-bank/multiplex.md`.

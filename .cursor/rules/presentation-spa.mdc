@@ -1,0 +1,30 @@
+---
+description: Reveal.js + React + TypeScript slide SPA patterns.
+globs: "**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Presentation SPA
+
+- Functional React + TypeScript. Slide content is components; reveal.js owns navigation.
+- Wrap the deck in one component. Call `Reveal.initialize()` once after the slide DOM exists. `destroy()` on unmount or lecture change. Do not init in render or module scope.
+- Horizontal `<section>` = main slides. Nested `<section>` = vertical stack. Use reveal `fragment` for stepped reveal.
+- One lecture = one module that renders its `<section>` tree. Keep the wrapper generic.
+- Prefer reveal.js behavior over custom keyboard/swipe code.
+- Multiplex: default role on Pages is client (`secret: null`). Master runs locally with a token from `https://multiplex.up.railway.app/token`. Never commit the master secret. See `memory-bank/multiplex.md`.
+
+```tsx
+// ❌ BAD — re-inits every render
+useEffect(() => {
+  Reveal.initialize();
+});
+
+// ✅ GOOD — init once for this deck
+useEffect(() => {
+  const deck = new Reveal(ref.current!, options);
+  deck.initialize();
+  return () => {
+    deck.destroy();
+  };
+}, [lectureId]);
+```

@@ -1,0 +1,62 @@
+:root {
+  --deck-bg: #0f1419;
+  --deck-fg: #f2f4f7;
+  --deck-muted: #a8b0bb;
+  --deck-accent: #5b9fd4;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--deck-bg);
+  color: var(--deck-fg);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.reveal {
+  height: 100%;
+}
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.reveal h1 {
+  font-size: 2.4em;
+  color: var(--deck-fg);
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+  color: var(--deck-fg);
+}
+
+.reveal h3 {
+  font-size: 1.25em;
+  color: var(--deck-accent);
+}
+
+.reveal p,
+.reveal li {
+  color: var(--deck-muted);
+  font-size: 0.95em;
+  line-height: 1.45;
+}
+
+.reveal .slides section > p:first-of-type {
+  color: var(--deck-fg);
+}
