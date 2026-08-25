@@ -1,10 +1,12 @@
 import { listLectures } from '../lectures'
+import { isLocalPresenterHost } from '../multiplex/resolve'
 import './CourseHome.css'
 
 function hrefForLecture(lectureId: string): string {
   const params = new URLSearchParams(window.location.search)
   params.set('lecture', lectureId)
   params.delete('print-pdf')
+  params.delete('presenter')
   const query = params.toString()
   return `${import.meta.env.BASE_URL}${query ? `?${query}` : ''}`
 }
@@ -14,6 +16,7 @@ function hrefForLecture(lectureId: string): string {
  */
 export function CourseHome() {
   const lectures = listLectures()
+  const showPresenterLink = isLocalPresenterHost()
 
   return (
     <main className="course-home">
@@ -25,6 +28,15 @@ export function CourseHome() {
           follow-along.
         </p>
       </header>
+
+      {showPresenterLink ? (
+        <p className="course-home__presenter">
+          <a href={`${import.meta.env.BASE_URL}?presenter=1`}>
+            Presenter session (local)
+          </a>
+          — mint a token and copy the student link.
+        </p>
+      ) : null}
 
       <ul className="course-home__list">
         {lectures.map((lecture) => (

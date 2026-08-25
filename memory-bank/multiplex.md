@@ -16,10 +16,18 @@ Availability of the Railway demo host is **not guaranteed**.
 
 | Module | Role |
 | --- | --- |
-| `src/multiplex/resolve.ts` | Role + config from query/env; script URLs |
+| `src/multiplex/resolve.ts` | Role + config; token fetch; student/master link builders |
 | `src/components/RevealDeck.tsx` | Sets `window.Reveal`, inits deck, loads socket.io + master/client |
+| `src/components/PresenterConsole.tsx` | **Local-only** UI: mint token, copy Pages student link, open master |
 
 Token endpoint returns `{ secret, socketId }`. Pass `socketId` as multiplex **`id`**.
+
+### Presenter console
+
+- URL: local `?presenter=1` (linked from course home on localhost only)
+- Hidden / blocked on `*.github.io` and non-local hosts
+- Dev/preview proxy: `/__multiplex/token` → Railway `/token` (avoids CORS)
+- Student link targets `VITE_PUBLIC_SITE_URL` (default Pages URL), never includes `secret`
 
 ### Roles
 

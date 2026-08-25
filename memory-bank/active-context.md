@@ -2,25 +2,24 @@
 
 ## Current focus
 
-**Phase 6 shipping** — course home, notes, print-pdf on `main` after this push.
+**Presenter console shipping** — local-only student-link helper after this push.
 
 ## Recent changes
 
-- `CourseHome` + `?lecture=` picker (Pages-safe)
-- Lectures: `welcome`, `how-to`
-- Reveal Notes plugin (S key); sample `<aside class="notes">`
-- README: home, notes, PDF, multiplex URLs include `lecture`
+- `PresenterConsole` — localhost-only; blocked on github.io
+- Vite proxy `/__multiplex/token` for token fetch
+- `buildStudentLink` / `buildMasterLink` helpers
+- `VITE_PUBLIC_SITE_URL` in `.env.example`
 
 ## Next steps
 
-1. Commit/push Phase 6
-2. Spot-check live home + `?lecture=welcome` + S notes + `?print-pdf`
+- Try `npm run dev` → Presenter session → copy link → open master
+- Commit/push when ready
 
 ## Active decisions
 
-- Lecture routing via query param only (no React Router)
-- Notes = client plugin, not notes-server
-- PDF = reveal built-in `?print-pdf` print view
+- Student links always point at Pages public URL
+- Presenter tools never useful on github.io
 
 ## Preferences
 

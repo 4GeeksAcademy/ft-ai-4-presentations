@@ -28,20 +28,22 @@ Vite `base` is `/ft-ai-4-presentations/` (project site).
 - **Speaker notes:** press **S** in a deck (client-side notes plugin; no notes server)
 - **PDF:** add `?print-pdf` (reveal.js print view), then browser Print → Save as PDF  
   Example: `?lecture=welcome&print-pdf`
+- **Presenter tools (localhost only):** `npm run dev` → **Presenter session (local)** or `?presenter=1`  
+  Mint a token, **Copy student link**, then **Open master deck**
 
 ## Live follow-along (multiplex)
 
 Relay: [https://multiplex.up.railway.app/](https://multiplex.up.railway.app/) (public; no SLA).
 
+Easiest path: use the local presenter console above. Manual:
+
 1. Open [https://multiplex.up.railway.app/token](https://multiplex.up.railway.app/token) — note `secret` and `socketId` (use `socketId` as `id`).
 2. **Audience (Pages client):**  
    `https://4geeksacademy.github.io/ft-ai-4-presentations/?lecture=welcome&id=<socketId>`
 3. **Presenter (local master):**  
-   `npm run dev`, then  
-   `http://localhost:5173/ft-ai-4-presentations/?lecture=welcome&role=master&id=<socketId>&secret=<secret>`  
-   Or put `VITE_MULTIPLEX_*` in gitignored `.env.local` (see `.env.example`).
+   `http://localhost:5173/ft-ai-4-presentations/?lecture=welcome&role=master&id=<socketId>&secret=<secret>`
 
-Master mode is **blocked on github.io**. Without `id`, the deck runs solo.
+Master mode and the presenter console are **blocked on github.io**.
 
 ## Add a lecture
 
