@@ -37,7 +37,7 @@ export function IntrospectionLecture() {
         <h2>By Monday:</h2>
         <ul>
           <li>
-            Finish uyp the "Building context from an existing project" project.
+            Finish up the "Building context from an existing project" project.
           </li>
           <li>
             Start working on the practices and readings for the "SPEC-DRIVEN
